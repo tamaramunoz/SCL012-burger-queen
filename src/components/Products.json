@@ -1,0 +1,26 @@
+[
+    {
+        "id": 0,
+        "food": "Café americano",
+        "price": 500,
+        "urlImagen": "https://via.placeholder.com/64"
+    },
+    {
+        "id": 1,
+        "food": "Café con leche",
+        "price": 700,
+        "urlImagen": "https://via.placeholder.com/64"
+    },
+    {
+        "id": 2,
+        "food": "Sandwich de jamón y queso",
+        "price": 1000,
+        "urlImagen": "https://via.placeholder.com/64"
+    },
+    {
+        "id": 3,
+        "food": "Jugo de frutas natural",
+        "price": 700,
+        "urlImagen": "https://via.placeholder.com/64"
+    }
+]

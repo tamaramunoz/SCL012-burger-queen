@@ -1,30 +1,23 @@
-import React, { useState, Fragment } from "react";
 
-const ProductList = () => {
+import React from 'react';
 
-    const [arrayNumero, setArrayNumero] = useState(['pan'])
-    const [numero, setNumero] = useState(500)
+const  ListProducts = ({data, type, addProduct }) => {
 
-    const agregarElemento = () => {
-        setNumero(numero + 1)
-        // console.log('click')
-        setArrayNumero([
-            ...arrayNumero,
-            numero
-        ])
-    }
+  const filter = data.filter((val)=> val.type === type);
 
-  return (
-    <Fragment>
-      <h2> ProductList </h2>
-      <button onClick={agregarElemento}>Agregar</button>
-      {
-          arrayNumero.map((item, index) =>
-          <p key={index}>{item} - {index}</p>
-          )
-      }
-    </Fragment>
-  );
-};
+  return filter.map(product => (
+    <div className="card" key={product._id} onClick ={() => {addProduct(product)} } >
+      <img className="product-img" src={product.image} alt={product.name} />
+    <   div className="container">
+          <div>
+            <h4 className="text-center"><b>{product.name}</b></h4>
+          </div>
+          <div >
+            <h5 className="price text-center">S/.{product.price}</h5>
+          </div>
+        </div>
+    </div>
+  ))
+}
 
-export default ProductList;
+export default ListProducts;

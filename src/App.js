@@ -4,24 +4,25 @@ import Products from './components/Products.json';
 import UserTable from './components/UserTable';
 import AddProductForm from './components/AddProductForm';
 
+
 function App() {
 
   const [product, setProduct] = useState(Products);
-  console.log(useState(Products))
+  // console.log(product)
 
   const addToOrder = (food) => {
-    food.id = Products.id
+    console.log(food)
     setProduct([
       ...product,
       food
     ])
   }
+  
 
   const foodData = [
     {id: uuidv4(), food: 'Café americano', price: 500},
     {id: uuidv4(), food: 'Café con leche', price: 700},
     {id: uuidv4(), food: 'Sandwich de jamón y queso', price: 1000},
-    {id: uuidv4(), food: 'Jugo de frutas natural', price: 700},
   ]
 
   // state
@@ -52,32 +53,33 @@ function App() {
       <h1>Burger Queen</h1>
       <div className="flex-row">
         <div className="flex-large">
-        <ul>
-          {
-            product.map(e => 
-              <p key={e.id}>
-                 {e.food} {e.price}
-              </p>
-            )
-          }
-        </ul>
-          {
+        {
             (
               <div>
-                <h2>Add Product</h2>
+                <h3>Add Costumer</h3>
                 <AddProductForm 
                   addFood={addFood}
-                  addToOrder={addToOrder}
                 />
               </div>
             )
           }
+        <ul>
+          {
+            product.map(e => 
+              <button key={e.id} onClick={addToOrder}>
+                 {e.food} {e.price}
+              </button>
+            )
+          }
+        </ul>
+          
         </div>
         <div className="flex-large">
           <h2>View Order</h2>
           <UserTable 
             foodList={foodList} 
             deleteProduct={deleteProduct} 
+            product={product}
           />
           {/* <ProductList/> */}
         </div>

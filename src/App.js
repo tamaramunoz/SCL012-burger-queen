@@ -1,24 +1,93 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Home from './components/Home.jsx';
+import { v4 as uuidv4 } from 'uuid';
+import Products from './components/Products.json';
+import UserTable from './components/UserTable';
+import AddProductForm from './components/AddProductForm';
+
+
 
 function App() {
+
+  const [product, setProduct] = useState(Products);
+  console.log(product[1].food)
+
+  const addToOrder = (food) => {
+    console.log(food)
+    setProduct([
+      ...product,
+      food
+    ])
+  }
+  
+
+  const foodData = [
+    {id: uuidv4(), food: 'Café americano', price: 500},
+    {id: uuidv4(), food: 'Café con leche', price: 700},
+    {id: uuidv4(), food: 'Sandwich de jamón y queso', price: 1000},
+  ]
+
+  // state
+  const [foodList, setFoodList] = useState(foodData)
+
+  // agrega usuarios
+  const addFood = (food) => {
+    food.id = uuidv4()
+    setFoodList([
+      ...foodList,
+      food
+    ])
+  }
+
+  // elimina producto
+  const deleteProduct = (id) => {
+    const arrayFiltrado = foodList.filter(food => food.id !== id);
+    setFoodList(arrayFiltrado);
+  }
+
+  // const updateOrder = (id, updatedOrder) => {
+  //   setEditing(false)
+  //   setFoodList(foodList.map(e => (e.id === id ? updatedOrder : e)))
+  // }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className="container">
+      <Home/>
+      <h1>Burger Queen</h1>
+      <div className="flex-row">
+        <div className="flex-large">
+        {
+            (
+              <div>
+                <h3>Add Costumer</h3>
+                <AddProductForm 
+                  addFood={addFood}
+                />
+              </div>
+            )
+          }
+        <ul>
+          {
+            product.map(e => 
+              <button key={e.id} onClick={addToOrder}>
+                 {e.food} {e.price}
+              </button>
+            )
+          }
+        </ul>
+          
+        </div>
+        <div className="flex-large">
+          <h2>View Order</h2>
+          <UserTable 
+            foodList={foodList} 
+            deleteProduct={deleteProduct} 
+            product={product}
+          />
+          {/* <ProductList/> */}
+        </div>
+      </div>
     </div>
   );
 }

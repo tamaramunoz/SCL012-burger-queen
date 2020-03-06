@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Database from './database'
+import LunchMenu from './lunchMenu'
 
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <header className="App-header">
-        <Database/>
+        <LunchMenu/>
       </header>
     </div>
   );

@@ -25,7 +25,6 @@ const UserTable = (props) => {
                                 >Delete</button>
                             </td>
                         </tr>
-
                         )) : (
                             <tr>
                                 <td colSpan={3}>No order</td>

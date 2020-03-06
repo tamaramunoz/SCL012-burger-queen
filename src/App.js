@@ -3,21 +3,10 @@ import { v4 as uuidv4 } from 'uuid';
 import Products from './components/Products.json';
 import UserTable from './components/UserTable';
 import AddProductForm from './components/AddProductForm';
+import ButtonProduct from './components/Button'
 
 
 function App() {
-
-  const [product, setProduct] = useState(Products);
-  // console.log(product)
-
-  const addToOrder = (food) => {
-    console.log(food)
-    setProduct([
-      ...product,
-      food
-    ])
-  }
-  
 
   const foodData = [
     {id: uuidv4(), food: 'Café americano', price: 500},
@@ -63,15 +52,11 @@ function App() {
               </div>
             )
           }
-        <ul>
-          {
-            product.map(e => 
-              <button key={e.id} onClick={addToOrder}>
-                 {e.food} {e.price}
-              </button>
-            )
-          }
-        </ul>
+        <div>
+          <ButtonProduct
+            Products={Products}
+          />
+        </div>
           
         </div>
         <div className="flex-large">
@@ -79,9 +64,7 @@ function App() {
           <UserTable 
             foodList={foodList} 
             deleteProduct={deleteProduct} 
-            product={product}
           />
-          {/* <ProductList/> */}
         </div>
       </div>
     </div>

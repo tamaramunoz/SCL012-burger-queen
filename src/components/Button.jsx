@@ -1,13 +1,25 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
+
 
 const ButtonProduct = (props) => {
 
+    const [product, setProduct] = useState(props.Products);
+    console.log(product[1].food)
+  
+    const addToOrder = (food) => {
+      console.log(food)
+      setProduct([
+        ...product,
+        food
+      ])
+    }
+
     return ( 
         <Fragment>
-            <ul>
+            <ul >
                 {
-                    props.product.map(e => 
-                    <button key={e.id} onClick={addToOrder}>
+                    product.map((e, key) => 
+                    <button key={key} onClick={addToOrder}>
                         {e.food} {e.price}
                     </button>
                     )

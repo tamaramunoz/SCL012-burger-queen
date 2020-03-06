@@ -7,7 +7,7 @@ const Home = () => {
 
         <Fragment>
              
-             <h1>Hola Queen</h1>
+             <h1>Burger Queen</h1>
              <button>Mesero</button>
              <button>Cocina</button>
 

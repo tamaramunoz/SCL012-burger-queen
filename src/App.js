@@ -1,8 +1,7 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import LunchMenu from './lunchMenu'
-import React, { useState } from 'react';
 import Home from './components/Home.jsx';
 import { v4 as uuidv4 } from 'uuid';
 import Products from './components/Products.json';
@@ -80,6 +79,7 @@ function App() {
         </div>
       </div>
 
+    </div>
     </div>
   );
 }

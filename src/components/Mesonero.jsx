@@ -1,10 +1,8 @@
 import React, { Fragment, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import Products from "./Products.json";
 import UserTable from "./UserTable";
 import AddProductForm from "./AddProductForm";
-import ButtonProduct from "./Button";
-
+import LunchMenu from "./lunchMenu";
 
 const Mesonero = () => {
 
@@ -19,7 +17,6 @@ const Mesonero = () => {
 
   // agrega usuarios
   const addFood = (food) => {
-
     setFoodList([...foodList, food]);
   };
   
@@ -47,26 +44,21 @@ const Mesonero = () => {
               {
                 <div>
                   <h3>Add Costumer</h3>
-                  <AddProductForm 
-                    addFood={addFood} />
+                  <AddProductForm addFood={addFood} />
                 </div>
               }
               <div>
-                <ButtonProduct 
-                  Products={Products}
-                  foodList={foodList}
-                  addFood={addFood}
-                />
+                <LunchMenu addFood={addFood} />
               </div>
             </div>
             <div className="flex-large">
               <h2>View Order</h2>
               <UserTable 
                 foodList={foodList} 
-                 
                 Products={Products}
                 deleteProduct={deleteProduct}
               />
+
             </div>
           </div>
         </div>
@@ -74,4 +66,5 @@ const Mesonero = () => {
     </Fragment>
   );
 };
+
 export default Mesonero;

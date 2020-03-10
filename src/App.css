@@ -1,5 +1,16 @@
+
+body{
+  background-color: white;
+  /* background-image: url("./img.svg/camarero.jpg"); */
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  min-height: 100%;
+}
+
+
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -15,6 +26,7 @@
 
 .App-header {
   background-color: #282c34;
+  /* background-image: url("./img.svg/header.jpg"); */
   min-height: 100vh;
   display: flex;
   flex-direction: column;

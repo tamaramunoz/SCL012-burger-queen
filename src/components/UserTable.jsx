@@ -1,9 +1,6 @@
-import React, { Fragment } from 'react'
+import React, { Fragment } from "react";
 
-const UserTable = (props) => {
-
-    
-
+const UserTable = props => {
     return ( 
         <Fragment>
             <table>
@@ -38,5 +35,4 @@ const UserTable = (props) => {
         </Fragment>
      );
 }
- 
 export default UserTable;

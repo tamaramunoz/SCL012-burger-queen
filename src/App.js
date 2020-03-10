@@ -17,6 +17,7 @@ function App() {
       <button>
         <Link to="/cocina">Cocina</Link>
       </button>
+
       <Route exact path="/app" component={App} />
       <Route path="/cocina" component={Cocina} />
       <Route path="/mesonero" component={Mesonero} />

@@ -20,7 +20,7 @@ const  AddToOrder= (props) => {
         <ul>
           {
             product.map(e => 
-              <button key={e.id} onClick={addToOrder}>
+              <button key={e.id} onClick={addToOrder()}>
                  {e.food} {e.price}
               </button>
             )

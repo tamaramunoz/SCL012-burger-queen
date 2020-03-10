@@ -15,15 +15,15 @@ const UserTable = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                {   props.foodList.length > 0 ?
-                        props.foodList.map((product, id) => (
-                        <tr key={product.id}>
-                            <td>{product.food}</td>
-                            <td>{product.price}</td>
+                {   props.Products.length > 0 ?
+                        props.Products.map((e, id) => (
+                        <tr key={e.id}>
+                            <td>{e.food}</td>
+                            <td>{e.price}</td>
                             <td>
                                 <button 
                                     className="button muted-button"
-                                    onClick={() => {props.deleteProduct(product.id)}}
+                                    onClick={() => {props.deleteProduct(e.id)}}
                                 >Delete</button>
                             </td>
                         </tr>

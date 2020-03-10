@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import db from './config/firebase';
+import db from '../config/firebase';
 
 
-class lunchMenu extends Component {
+class breakfastMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,7 +11,7 @@ class lunchMenu extends Component {
   }
   
   componentDidMount(){
-    db.collection('Almuerzo').get().then((querySnapshot) => {
+    db.collection('Desayuno').get().then((querySnapshot) => {
       const data = querySnapshot.docs.map(doc => doc.data());
       this.setState({
         menuA:data
@@ -39,6 +39,4 @@ class lunchMenu extends Component {
     }
   }
 
-  export default lunchMenu;
-
-
+  export default breakfastMenu;

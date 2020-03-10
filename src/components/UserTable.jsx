@@ -2,6 +2,8 @@ import React, { Fragment } from 'react'
 
 const UserTable = (props) => {
 
+    
+
     return ( 
         <Fragment>
             <table>
@@ -13,7 +15,7 @@ const UserTable = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {   props.foodList.length > 0 ?
+                {   props.foodList.length > 0 ?
                         props.foodList.map((product, id) => (
                         <tr key={product.id}>
                             <td>{product.food}</td>
@@ -31,7 +33,6 @@ const UserTable = (props) => {
                             </tr>
                         )
                     }
-
                 </tbody>
             </table>
         </Fragment>

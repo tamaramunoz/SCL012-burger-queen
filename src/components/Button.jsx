@@ -1,36 +1,29 @@
-import React, { Fragment, useState } from 'react'
-// import { useForm } from 'react-hook-form'
-// import AddProductForm from './AddProductForm';
+import React, { Fragment, useState } from "react";
+const ButtonProduct = props => {
+  const [product, setProduct] = useState(props.Products);
+  // console.log('este es el console.log del product' + product)
+  // let meal = Object.values(product[3])
+  let meal = product.filter(function(e) {
+    return e.food === "Café americano";
+  });
+  console.log("este es el console.log del meal" + meal);
 
-
-const ButtonProduct = (props) => {
-
-    const [product, setProduct] = useState(props.Products);
-    console.log(product[0].food)
-  
-    const addToOrder = (props) => {
-      console.log(props)
-      setProduct([
-        ...product,
-        props
-      ])
-    }
-    
-
-    return ( 
-        <Fragment>
-            <ul >
-                {
-                    product.map((e, key) => 
-                    // <button key={key} onClick={addToOrder}>
-                     <button key={key} onClick={addToOrder}>
-                        {e.food} {e.price}
-                    </button>
-                    )
-                }
-            </ul>
-        </Fragment>
-     );
-}
+  const addToOrder = food => {
+    setProduct([...product, food]);
+  };
  
+  return (
+    <Fragment>
+      <ul>
+        {product.map((e, key) => (
+          <button key={key} onClick={addToOrder}>
+            {e.food} {e.price}
+          </button>
+        ))}
+      </ul>
+      <p></p>
+    </Fragment>
+  );
+};
+
 export default ButtonProduct;

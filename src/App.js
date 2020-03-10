@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import Home from './components/Home.jsx';
 import { v4 as uuidv4 } from 'uuid';
 import Products from './components/Products.json';
 import UserTable from './components/UserTable';
 import AddProductForm from './components/AddProductForm';
 import ButtonProduct from './components/Button'
+
 
 
 function App() {
@@ -38,7 +40,9 @@ function App() {
   // }
 
   return (
+
     <div className="container">
+      <Home/>
       <h1>Burger Queen</h1>
       <div className="flex-row">
         <div className="flex-large">

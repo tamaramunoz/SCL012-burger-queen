@@ -1,9 +1,8 @@
 import React, { Fragment, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import Products from "./Products.json";
 import UserTable from "./UserTable";
 import AddProductForm from "./AddProductForm";
-import ButtonProduct from "./Button";
+import LunchMenu from "./lunchMenu";
 
 const Mesonero = () => {
   const foodData = [
@@ -52,7 +51,7 @@ const Mesonero = () => {
                 </div>
               }
               <div>
-                <ButtonProduct Products={Products} />
+                <LunchMenu addFood={addFood} />
               </div>
             </div>
             <div className="flex-large">
